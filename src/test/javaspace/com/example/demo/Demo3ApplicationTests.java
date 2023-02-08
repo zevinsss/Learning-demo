@@ -265,5 +265,55 @@ public class Demo3ApplicationTests {
 
 	}
 
+	@Test
+	public void test11(){
+		isValid("{[()]{}}[]");
+
+
+	}
+
+	public boolean isValid(String s) {
+		HashMap<Character,Character> map = new HashMap<>(3);
+		map.put('(',')');
+		map.put('{','}');
+		map.put('[',']');
+		if(s.length() > 0 && !map.containsKey(s.charAt(0))) return false;
+		LinkedList<Character> stack = new LinkedList<Character>() {{ add('?'); }};
+		for(Character c : s.toCharArray()){
+			if(map.containsKey(c)) {
+				stack.addLast(c);
+			}
+			else if(map.get(stack.removeLast()) != c){
+				return false;
+			}
+		}
+		System.out.println(stack.size() == 1);
+		return stack.size() == 1;
+
+//		HashMap<Character,Character> map = new HashMap<>(3);
+//		map.put('(',')');
+//		map.put('{','}');
+//		map.put('[',']');
+//		boolean bo = true ;
+//		if (s.length()%2==1){
+//			return false;
+//		}
+//		for (int i = 0; i < s.length(); i=i+2) {
+//			if (map.containsKey(s.charAt(i))){
+//				if (map.get(s.charAt(i)).equals(s.charAt(i+1))){
+//
+//				}else {
+//					bo = false;
+//					break;
+//				}
+//			}
+//			else {
+//				bo = false;
+//				break;}
+//		}
+//		System.out.println(bo);
+//		return bo;
+	}
+
 
 }
