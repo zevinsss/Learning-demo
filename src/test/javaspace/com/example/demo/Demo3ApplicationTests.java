@@ -267,7 +267,7 @@ public class Demo3ApplicationTests {
 
 	@Test
 	public void test11(){
-		isValid("{[()]{}}[]");
+		isValid("(){}}{");
 
 
 	}
@@ -290,30 +290,30 @@ public class Demo3ApplicationTests {
 		System.out.println(stack.size() == 1);
 		return stack.size() == 1;
 
+
+	}
+//	public boolean isValid(String s) {
 //		HashMap<Character,Character> map = new HashMap<>(3);
 //		map.put('(',')');
 //		map.put('{','}');
 //		map.put('[',']');
-//		boolean bo = true ;
-//		if (s.length()%2==1){
-//			return false;
-//		}
-//		for (int i = 0; i < s.length(); i=i+2) {
-//			if (map.containsKey(s.charAt(i))){
-//				if (map.get(s.charAt(i)).equals(s.charAt(i+1))){
-//
-//				}else {
-//					bo = false;
-//					break;
-//				}
+//		LinkedList<Character> linkedList = new LinkedList<Character>();
+//		for (Character c: s.toCharArray()) {
+//			if (map.containsKey(c)){
+//				linkedList.addLast(c);
+//			} else if (map.get(linkedList.removeLast())!= c) {
+//				return false;
 //			}
-//			else {
-//				bo = false;
-//				break;}
 //		}
-//		System.out.println(bo);
-//		return bo;
-	}
+//		System.out.println(linkedList.size()==0?true:false);
+//		return  linkedList.size()==0;
+//	}
 
+	@Test
+	public  void  ascill(){
+		String asd = "一";
+		int a = asd.charAt(0);
+		System.out.println(a);
+	}
 
 }
