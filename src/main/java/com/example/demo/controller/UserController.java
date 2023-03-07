@@ -8,6 +8,7 @@ import com.example.demo.entity.SysLogEntity;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -26,7 +27,7 @@ public class UserController {
     //这里加上了注解，再调用该方法时就会进行aop的增强 进行日志记录
     @SysLog("查询用户列表")
     @CheckValue("2")
-    @GetMapping("/list")
+    @RequestMapping("/list")
     public String getUserList(Integer age){
        /* List<SysLogEntity> userEntities = sysLogDao.selectList(new QueryWrapper<>());
         return userEntities.toString();*/

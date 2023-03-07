@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @MapperScan("com.example.demo.dao")
-@ComponentScan("com.example.demo.satoken")
+
 @SpringBootApplication
 public class Demo3Application {
 

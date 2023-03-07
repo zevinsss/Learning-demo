@@ -2,10 +2,13 @@ package com.example.demo.satoken.controller;
 
 import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.stp.StpUtil;
+import com.example.demo.elasticsearch.common.R;
+import com.example.demo.elasticsearch.config.LogAsp;
 import com.example.demo.satoken.config.SatokenConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -35,7 +38,11 @@ public class SatokenController {
         return StpUtil.isLogin();
     }
 
-
+    @LogAsp
+    @RequestMapping("/qwe")
+    public R<String> addLog(@RequestParam(value = "param1",required = false) String param1){
+        return R.success("你好，这段话将被日志记录");
+    }
     @SaCheckPermission
     @RequestMapping("/permission")
     public List<String> permission(String id){

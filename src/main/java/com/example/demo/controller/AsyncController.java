@@ -13,7 +13,7 @@ public class AsyncController {
     @Autowired
     private AsyncServiceImpl asyncService;
 
-    @GetMapping("something")
+    @GetMapping("/something")
     public String something() {
         int count = 10;
         for (int i = 0; i < count; i++) {

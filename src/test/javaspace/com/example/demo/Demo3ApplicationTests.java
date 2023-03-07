@@ -311,9 +311,53 @@ public class Demo3ApplicationTests {
 
 	@Test
 	public  void  ascill(){
-		String asd = "一";
-		int a = asd.charAt(0);
-		System.out.println(a);
+		int[] nums =  {0,1,2,2,3,4,4};
+		removeDuplicates(nums);
+	}
+
+	public int removeDuplicates(int[] nums) {
+		int p = 0;
+		int q = 1;
+		while (q<nums.length){
+			if (nums[p]!=nums[q]) {
+				nums[p+1] = nums[q];
+				p++;
+			}
+			q++;
+		}
+		return p+1;
+	}
+
+	@Test
+	public void lengthOfLastWord() {
+		lengthOfLastWord("Hello World");
+	}
+	public int lengthOfLastWord(String s) {
+		int p=s.length()-1;
+		int space = 0;
+		int q=0;
+		while (s.charAt(p)==' '){
+			p--;
+		}
+		String k = s.substring(0,p+1);
+		while (p>0){
+			if (k.charAt(p)==' '){
+				return space;
+			}
+			space++;
+			p--;
+		}
+		return space;
+	}
+
+	@Test
+	public void intshuzu(){
+		int [] array = {1,2,3,4,5,6};
+		array = new int[7];
+		array[0] = 1;
+		//Arrays.copyOf方法调用
+		System.out.println(Arrays.toString(array));
+		//打印结果：[1,2,3,4,5,6]
 	}
 
 }
