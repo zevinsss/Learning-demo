@@ -12,6 +12,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
@@ -36,7 +37,7 @@ public class SysLogAspect {
 
     }
 
-    @Around("logPointCut()")
+    @Around("@annotation(com.example.demo.aspect.annotation.SysLog)")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         long beginTime = System.currentTimeMillis();
         //执行方法
@@ -58,7 +59,7 @@ public class SysLogAspect {
         SysLog syslog = method.getAnnotation(SysLog.class);
         if(syslog != null){
             //注解上的描述
-            sysLog.setOperation(syslog.value());
+            sysLog.setOperation(syslog.value().toString());
         }
 
         //请求的方法名
@@ -68,6 +69,7 @@ public class SysLogAspect {
 
         //请求的参数
         Object[] args = joinPoint.getArgs();
+        Assert.hasText(joinPoint.getArgs().toString());
         try{
             String params = Arrays.toString(args);
             sysLog.setParams(params);

@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -12,7 +13,7 @@ import java.util.Date;
 @TableName("sys_log")
 public class SysLogEntity implements Serializable {
     private static final long serialVersionUID = 1L;
-    @TableId
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     //用户名
     @TableField("username")
@@ -28,7 +29,7 @@ public class SysLogEntity implements Serializable {
     private String params;
     @TableField("time")
     //执行时长(毫秒)
-    private Long time;
+        private Long time;
     @TableField("ip")
     //IP地址
     private String ip;

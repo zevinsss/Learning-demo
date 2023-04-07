@@ -11,6 +11,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
 import com.baomidou.mybatisplus.core.conditions.interfaces.Compare;
 
+import com.example.demo.controller.UserController;
 import com.example.demo.esayExcel.EasyExcelLesner;
 import com.example.demo.esayExcel.EsayExcelEntity;
 import com.example.demo.test.BillsNums;
@@ -20,6 +21,7 @@ import com.example.demo.testDao.StudentMapper;
 import com.example.demo.testModels.Person2;
 import com.example.demo.testModels.Student;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.Assert;
 import org.testng.annotations.Test;
 
 import javax.annotation.Resource;
@@ -358,6 +360,16 @@ public class Demo3ApplicationTests {
 		//Arrays.copyOf方法调用
 		System.out.println(Arrays.toString(array));
 		//打印结果：[1,2,3,4,5,6]
+	}
+
+	@Resource
+	UserController userController;
+	@Test
+	public void asdqwe(){
+
+//		Assert.notNull(null,"null了啊");
+		Assert.hasText("34","没信息");
+
 	}
 
 }
