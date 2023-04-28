@@ -4,4 +4,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.demo.entity.UserEntity;
 
 public interface UserService extends IService<UserEntity> {
+
+    String dontKnow(String str);
 }

@@ -6,7 +6,7 @@ spring:
     username: root
     password: 6212601fang
   redis:
-    host: zevin.club
+    host: zevin.space
     port: 6379
     password: password
 server:
